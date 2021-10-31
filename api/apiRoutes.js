@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 //write notes
 router.post('/', (req, res) => {
     //read file..
-    const notes = fs.readFileSync('./db/db.json');
+    const notes = fs.readFileSync(path.join(__dirname, "../db/db.json"));
     //..then convert to js array
     const parsed = JSON.parse(notes);
     //push new note (req.body) to the array
@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 
 //delete notes
 router.delete('/:id', (req, res) => {
-    const notes = fs.readFileSync('./db/db.json');
+    const notes = fs.readFileSync(path.join(__dirname, "../db/db.json"));
     //..then convert to js array
     const parsed = JSON.parse(notes);
     //req.params.id is the id of the element that we want to delete/ req.params is the object
